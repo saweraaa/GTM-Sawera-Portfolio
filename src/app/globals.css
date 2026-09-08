@@ -1,0 +1,302 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------------------------------------------------------------
+   1. Raw palette. These swap between themes.
+   --------------------------------------------------------------- */
+:root {
+  --bone: #faf6f3;
+  --linen: #f1e8e2;
+  --blush: #e7cbc8;
+  --garnet: #b33a63;
+  --garnet-deep: #8e2b4d;
+  --plum: #3d1e36;
+  --ink: #241a20;
+  --muted: #6e5c63;
+  --gold: #c79a5b;
+  --sage: #7e9080;
+  --line: rgb(36 26 32 / 0.12);
+  --line-strong: rgb(36 26 32 / 0.24);
+  --shadow-warm: 0 18px 44px -22px rgb(61 30 54 / 0.28);
+
+  /* Plum band tokens. These stay constant so inverted sections
+     look identical in both themes. */
+  --on-plum: #f6ece9;
+  --on-plum-muted: #c9adba;
+
+  color-scheme: light;
+}
+
+.dark {
+  --bone: #171115;
+  --linen: #211820;
+  --blush: #4a2e37;
+  --garnet: #e5799b;
+  --garnet-deep: #f0a0b8;
+  --plum: #2a1526;
+  --ink: #f4eae6;
+  --muted: #b3a0a8;
+  --gold: #e0b87c;
+  --sage: #9db3a0;
+  --line: rgb(244 234 230 / 0.14);
+  --line-strong: rgb(244 234 230 / 0.28);
+  --shadow-warm: 0 18px 44px -22px rgb(0 0 0 / 0.6);
+
+  color-scheme: dark;
+}
+
+/* ---------------------------------------------------------------
+   2. Tailwind theme. "inline" keeps the var() reference live,
+      so utilities follow the theme swap above.
+   --------------------------------------------------------------- */
+@theme inline {
+  --color-bone: var(--bone);
+  --color-linen: var(--linen);
+  --color-blush: var(--blush);
+  --color-garnet: var(--garnet);
+  --color-garnet-deep: var(--garnet-deep);
+  --color-plum: var(--plum);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-gold: var(--gold);
+  --color-sage: var(--sage);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-on-plum: var(--on-plum);
+  --color-on-plum-muted: var(--on-plum-muted);
+
+  --font-display: var(--font-fraunces), ui-serif, Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace;
+
+  --radius-sm: 6px;
+  --radius-card: 14px;
+  --radius-xl2: 24px;
+  --radius-pill: 999px;
+
+  --shadow-card: var(--shadow-warm);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --breakpoint-3xl: 1600px;
+}
+
+/* ---------------------------------------------------------------
+   3. Base layer
+   --------------------------------------------------------------- */
+@layer base {
+  * {
+    border-color: var(--line);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: auto; /* Lenis owns scrolling */
+  }
+
+  body {
+    background-color: var(--bone);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    font-feature-settings: "kern", "liga", "calt";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    letter-spacing: -0.018em;
+    line-height: 1.05;
+    text-wrap: balance;
+    font-variation-settings: "SOFT" 28, "WONK" 1;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--garnet);
+    color: var(--bone);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--garnet);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  a, button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Hide the native cursor only where the custom one is active */
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: none !important;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--linen);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--line-strong);
+    border-radius: 999px;
+  }
+}
+
+/* ---------------------------------------------------------------
+   4. Reusable component classes
+   --------------------------------------------------------------- */
+@layer components {
+  .type-display-xl {
+    font-family: var(--font-display);
+    font-size: clamp(3.25rem, 9vw, 7.5rem);
+    line-height: 0.94;
+    letter-spacing: -0.032em;
+    font-weight: 300;
+    font-variation-settings: "SOFT" 40, "WONK" 1, "opsz" 120;
+  }
+
+  .type-display-l {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.026em;
+    font-weight: 300;
+    font-variation-settings: "SOFT" 34, "WONK" 1, "opsz" 90;
+  }
+
+  .type-display-m {
+    font-family: var(--font-display);
+    font-size: clamp(1.9rem, 4vw, 3rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    font-weight: 300;
+  }
+
+  .type-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+    line-height: 1.25;
+    font-weight: 400;
+  }
+
+  .type-lead {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: 62ch;
+  }
+
+  .type-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .prose-measure {
+    max-width: 68ch;
+  }
+
+  .hairline {
+    border-top: 1px solid var(--line);
+  }
+
+  .band-plum {
+    background: var(--plum);
+    color: var(--on-plum);
+  }
+  .band-plum h1,
+  .band-plum h2,
+  .band-plum h3 {
+    color: var(--on-plum);
+  }
+  .band-plum .type-label,
+  .band-plum .type-lead {
+    color: var(--on-plum-muted);
+  }
+
+  /* Animated link underline, drawn left to right */
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.45s var(--ease-out-expo);
+  }
+  .link-underline:hover,
+  .link-underline:focus-visible {
+    background-size: 100% 1px;
+  }
+
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+  }
+
+  .vertical-label {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+}
+
+/* ---------------------------------------------------------------
+   5. Aspect ratios and keyframes
+      Tailwind v4 resolves bare fractions such as aspect-3/4 natively.
+      These declarations are a safety net, and they are the single
+      place to look if an aspect utility is not applying.
+   --------------------------------------------------------------- */
+@layer components {
+  .aspect-3\/4 { aspect-ratio: 3 / 4; }
+  .aspect-3\/2 { aspect-ratio: 3 / 2; }
+  .aspect-4\/5 { aspect-ratio: 4 / 5; }
+  .aspect-16\/10 { aspect-ratio: 16 / 10; }
+}
+
+@keyframes marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+/* ---------------------------------------------------------------
+   6. Reduced motion contract
+   --------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,22 @@
+# Sawera Nadeem
+
+> GTM Engineer and MS Computer Science researcher. Builds B2B outbound systems,
+> enrichment pipelines and CRM architecture for healthcare AI. Trains developers
+> across Pakistan through NAVTTC, Virtual University and Saylani.
+
+## Pages
+- [Home](https://saweranadeem.com/): Positioning, proof metrics, featured work.
+- [GTM Engineering](https://saweranadeem.com/gtm-engineering): The full six-stage outbound system, tool by tool.
+- [Services](https://saweranadeem.com/services): Four engagement types, deliverables and process.
+- [Work](https://saweranadeem.com/work): Case studies across GTM, applied AI and curriculum design.
+- [Speaking](https://saweranadeem.com/speaking): Talks, workshops and training programmes.
+- [About](https://saweranadeem.com/about): Background, timeline and credentials.
+- [Resume](https://saweranadeem.com/resume): Downloadable CVs, commercial and academic.
+- [Contact](https://saweranadeem.com/contact): Enquiry form and direct channels.
+
+## Facts
+- Location: Faisalabad, Pakistan. Works remotely with US and EU teams.
+- Current role: Senior Manager, Business Development and Growth, Techloset Solutions.
+- Education: MS Computer Science, 2025. BS Software Engineering, CGPA 3.7, University of Agriculture Faisalabad.
+- GTM tools operated: LinkedIn Sales Navigator, Apollo.io, Instantly, HubSpot, Trello, Google Analytics.
+- Research: Retrieval-Augmented Generation for clinical decision support in Urdu.
