@@ -2,7 +2,7 @@ export const SITE = {
   name: "Sawera Nadeem",
   shortName: "Sawera",
   role: "GTM Engineer",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://saweranadeem.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://saweranadeem.com",
   locale: "en_US",
   email: "saweranadeem8063@gmail.com",
   phone: "+92 303 7707026",
