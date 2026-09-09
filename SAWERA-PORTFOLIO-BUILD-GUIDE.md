@@ -1,6 +1,8 @@
 # Sawera Nadeem, Personal Brand Portfolio
 ## Complete Build Specification & Implementation Guide
 
+---
+
 > **This document is the single source of truth.** An engineering agent should be able to
 > read it top to bottom and ship a production site without asking questions.
 > Every file is given in full. Every command is given in order.
