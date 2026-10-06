@@ -11,7 +11,9 @@ import { TextReveal } from "@/components/ui/TextReveal";
 import { SmartImage } from "@/components/ui/SmartImage";
 import { Chip } from "@/components/ui/Chip";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { OutboundPipelineGraphic } from "@/components/sections/OutboundPipelineGraphic";
 import { CASE_STUDIES, getCaseStudy } from "@/content/work";
+import { cn } from "@/lib/utils";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -93,11 +95,21 @@ export default async function CaseStudyPage({ params }: Params) {
                   <dt className="type-label">Organisation</dt>
                   <dd className="mt-2 text-ink">{study.org}</dd>
                 </div>
+                {study.project && (
+                  <div>
+                    <dt className="type-label">Project</dt>
+                    <dd className="mt-2 text-ink">{study.project}</dd>
+                  </div>
+                )}
                 <div>
                   <dt className="type-label">Role</dt>
                   <dd className="mt-2 text-ink">{study.role}</dd>
                 </div>
-                <div className="sm:col-span-2">
+                <div
+                  className={cn(
+                    study.project ? "sm:col-span-2 lg:col-span-1" : "sm:col-span-2"
+                  )}
+                >
                   <dt className="type-label">Stack</dt>
                   <dd className="mt-2 flex flex-wrap gap-2">
                     {study.stack.map((s) => (
@@ -112,16 +124,20 @@ export default async function CaseStudyPage({ params }: Params) {
 
         <Container bleed>
           <Reveal>
-            <SmartImage
-              src={study.cover}
-              alt={study.title}
-              width={2000}
-              height={1250}
-              priority
-              sizes="100vw"
-              className="aspect-16/10 w-full rounded-xl2 object-cover"
-              wrapperClassName="aspect-16/10 w-full rounded-xl2"
-            />
+            {study.slug === "outbound-engine" ? (
+              <OutboundPipelineGraphic />
+            ) : (
+              <SmartImage
+                src={study.cover}
+                alt={study.title}
+                width={2000}
+                height={1250}
+                priority
+                sizes="100vw"
+                className="aspect-16/10 w-full rounded-xl2 object-cover"
+                wrapperClassName="aspect-16/10 w-full rounded-xl2"
+              />
+            )}
           </Reveal>
         </Container>
 
@@ -148,17 +164,21 @@ export default async function CaseStudyPage({ params }: Params) {
           <div className="grid gap-14 lg:grid-cols-12 lg:gap-8">
             <div className="lg:col-span-7">
               <Reveal>
-                <p className="type-label">The situation</p>
-                <p className="prose-measure mt-4 text-lg text-ink">{study.summary}</p>
+                <p className="type-label">{study.overviewHeading ?? "The situation"}</p>
+                <div className="prose-measure mt-4 whitespace-pre-line text-lg text-ink leading-relaxed">
+                  {study.summary}
+                </div>
               </Reveal>
 
               <Reveal className="mt-14">
-                <p className="type-label">The problem</p>
-                <p className="prose-measure mt-4 text-muted">{study.challenge}</p>
+                <p className="type-label">{study.challengeHeading ?? "The problem"}</p>
+                <div className="prose-measure mt-4 whitespace-pre-line text-muted leading-relaxed">
+                  {study.challenge}
+                </div>
               </Reveal>
 
               <Reveal className="mt-14">
-                <p className="type-label">What I did</p>
+                <p className="type-label">{study.approachHeading ?? "What I did"}</p>
                 <ol className="mt-6 flex flex-col gap-10">
                   {study.approach.map((a, i) => (
                     <li key={a.title} className="border-t border-line pt-6">
@@ -166,7 +186,9 @@ export default async function CaseStudyPage({ params }: Params) {
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <h2 className="type-title mt-3 max-w-[26ch]">{a.title}</h2>
-                      <p className="prose-measure mt-3 text-muted">{a.body}</p>
+                      <div className="prose-measure mt-3 whitespace-pre-line text-muted leading-relaxed">
+                        {a.body}
+                      </div>
                     </li>
                   ))}
                 </ol>
@@ -188,6 +210,15 @@ export default async function CaseStudyPage({ params }: Params) {
                       </li>
                     ))}
                   </ul>
+
+                  {study.outcomeHighlight && (
+                    <div className="mt-8 rounded-card border-l-2 border-garnet bg-linen/50 p-4">
+                      <p className="text-xs font-medium leading-relaxed text-ink">
+                        {study.outcomeHighlight}
+                      </p>
+                    </div>
+                  )}
+
                   {study.note && (
                     <p className="mt-6 border-l-2 border-gold/60 pl-4 text-xs text-muted">
                       {study.note}
@@ -198,6 +229,29 @@ export default async function CaseStudyPage({ params }: Params) {
             </aside>
           </div>
         </Container>
+
+        {/* What I owned */}
+        {study.owned && (
+          <Container className="pt-20 lg:pt-28">
+            <Reveal>
+              <div className="border-t border-line pt-12 lg:pt-16">
+                <p className="type-label">What I owned</p>
+                <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                  {study.owned.map((item) => (
+                    <div key={item.category} className="flex flex-col">
+                      <span className="font-mono text-xs uppercase tracking-[0.16em] text-garnet font-medium">
+                        {item.category}
+                      </span>
+                      <p className="mt-2 text-sm text-ink leading-relaxed">
+                        {item.details}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+          </Container>
+        )}
 
         {/* Next */}
         <Container className="py-24">
@@ -224,7 +278,7 @@ export default async function CaseStudyPage({ params }: Params) {
         </Container>
       </article>
 
-      <CtaBand />
+      <CtaBand body={study.ctaBody} />
     </>
   );
 }

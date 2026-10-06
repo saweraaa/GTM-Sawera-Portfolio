@@ -14,7 +14,8 @@ export function CtaBand({
   primaryLabel?: string;
 }) {
   return (
-    <section className="band-plum relative overflow-hidden">
+    <section className="band-plum relative overflow-hidden lg:mt-24">
+    {/* <section className="band-plum relative overflow-hidden"> */}
       <AuroraMesh />
       <Container className="relative py-24 text-center lg:py-36">
         <Reveal className="mx-auto flex max-w-2xl flex-col items-center">

@@ -88,7 +88,7 @@ export type TimelineItem = {
   period: string;
   title: string;
   org: string;
-  kind: "work" | "teaching" | "education" | "honour";
+  kind: "work" | "teaching" | "education" | "honour" | "research";
   body: string;
   highlights?: string[];
 };
@@ -109,11 +109,12 @@ export const TIMELINE: TimelineItem[] = [
       "Lead hiring for sales and marketing, from job posts through to screening",
     ],
   },
+  // TODO: confirm exact dates/title
   {
-    period: "2025",
-    title: "MS Computer Science",
-    org: "Thesis in progress",
-    kind: "education",
+    period: "2025, in progress",
+    title: "Applied AI and Research",
+    org: "MS Computer Science Thesis",
+    kind: "research",
     body: "Researching a retrieval-augmented generation pipeline that answers Urdu-language clinical questions grounded in Pakistan's national health guidelines, aimed at community health workers.",
   },
   {
@@ -144,6 +145,7 @@ export const TIMELINE: TimelineItem[] = [
     kind: "work",
     body: "Ran B2B lead generation and outreach on LinkedIn. Built the sequences, maintained the CRM, and worked with sales to sharpen the ICP based on what actually replied.",
   },
+  // TODO: confirm exact dates/title
   {
     period: "2024",
     title: "Instructor, Mentor and Full-Stack Developer",

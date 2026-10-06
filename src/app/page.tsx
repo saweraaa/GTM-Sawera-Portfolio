@@ -6,6 +6,7 @@ import { Pillars } from "@/components/sections/Pillars";
 import { StackMarquee } from "@/components/sections/StackMarquee";
 import { FeaturedWork } from "@/components/sections/FeaturedWork";
 import { SpeakingStrip } from "@/components/sections/SpeakingStrip";
+import { TestimonialsBand } from "@/components/sections/TestimonialsBand";
 import { CtaBand } from "@/components/sections/CtaBand";
 
 export const metadata: Metadata = buildMetadata({
@@ -32,6 +33,7 @@ export default function HomePage() {
       <StackMarquee />
       <FeaturedWork />
       <SpeakingStrip />
+      <TestimonialsBand />
       <CtaBand />
     </>
   );

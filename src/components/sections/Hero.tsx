@@ -136,7 +136,7 @@ export function Hero() {
             </div>
 
             <p className="mt-5 text-right font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-muted">
-              Techloset Solutions · SynaCare
+              Sawera Nadeem · GTM Engineer
             </p>
           </motion.div>
         </div>
