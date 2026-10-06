@@ -54,7 +54,7 @@ export const PILLARS = [
     title: "Teaching and speaking",
     lede: "If I cannot teach it, I do not understand it.",
     body: "I run a three-month government-funded full-stack programme, teach at Virtual University, and step onto university stages when someone needs a working developer rather than a slide deck. Three institutions have handed me a shield for it. Teaching is also the reason my documentation is good, which clients notice long before they notice anything else.",
-    proof: "NAVTTC, Virtual University of Pakistan, and incoming at Saylani Mass IT Training Center.",
+    proof: "NAVTTC, Virtual University of Pakistan, and Saylani Mass IT Training Center.",
     tags: ["Curriculum design", "Live instruction", "Mentorship", "Public speaking"],
   },
 ] as const;
@@ -118,9 +118,9 @@ export const TIMELINE: TimelineItem[] = [
     body: "Researching a retrieval-augmented generation pipeline that answers Urdu-language clinical questions grounded in Pakistan's national health guidelines, aimed at community health workers.",
   },
   {
-    period: "2025, incoming",
+    period: "2025",
     title: "Instructor, Web Development and Coding",
-    org: "Saylani Mass IT Training Center",
+    org: "IT Training Center",
     kind: "teaching",
     body: "Selected to teach at one of the largest free technical training networks in Pakistan.",
   },

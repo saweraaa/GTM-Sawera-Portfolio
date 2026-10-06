@@ -1,75 +1,116 @@
-import { Container } from "@/components/ui/Container";
-import { Reveal } from "@/components/ui/Reveal";
+"use client";
 
-export type Testimonial = {
+import { useEffect, useState } from "react";
+
+type Testimonial = {
   quote: string;
   name: string;
   role: string;
+  work?: string;
+  photo?: string;
+  placeholder?: boolean;
 };
 
-// TODO: replace placeholder testimonials with real client quotes
-const DEFAULT_TESTIMONIALS: Testimonial[] = [
+// ADD / EDIT TESTIMONIALS HERE ONLY.
+// Real ones: set placeholder to false (or delete the field) and paste the client's approved words.
+const TESTIMONIALS: Testimonial[] = [
+  // Based on Anas's feedback as relayed by Sawera.
   {
     quote:
-      "[QUOTE — 1-2 sentences on the EHR outbound engine work, deliverability setup, and discovery calls booked with US clinic owners]",
-    name: "[Name]",
-    role: "[Role, Company]",
+      "Sawera guided us through our branding and GTM engineering from the start. As a startup, we needed that direction, and she gave it. We now know how to take our brand further on our own.",
+    name: "Anas",
+    role: "CEO, Innovrah",
+    work: "Branding & GTM Engineering",
+    photo: "",
+    placeholder: false,
   },
   {
     quote:
-      "[QUOTE — 1-2 sentences on the full-stack training cohort, practical curriculum delivery, and student project outcomes]",
-    name: "[Name]",
-    role: "[Role, Company]",
+      "Sawera automated our systems, showed us how to generate leads, and helped us manage our website. She took care of the work that was slowing us down.",
+    name: "Bohman",
+    role: "Client, Europe",
+    work: "Business Automation",
+    photo: "",
+    placeholder: false,
   },
   {
     quote:
-      "[QUOTE — 1-2 sentences on general GTM engineering collaboration, data enrichment pipelines, and HubSpot CRM architecture]",
-    name: "[Name]",
-    role: "[Role, Company]",
+      "Our content strategy was weak. Sawera added real value: she identified our target audience, built the strategies, and automated the whole system.",
+    name: "Davis",
+    role: "Client, UK",
+    work: "AI Content, Marketing & Lead Generation",
+    photo: "",
+    placeholder: false,
   },
 ];
 
-export interface TestimonialsBandProps {
-  eyebrow?: string;
-  title?: string;
-  lede?: string;
-  testimonials?: Testimonial[];
+function getInitials(name: string) {
+  return name
+    .trim()
+    .split(/\s+/)
+    .map((word) => word[0])
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
 }
 
-export function TestimonialsBand({
-  eyebrow = "Proof",
-  title = "Don't take my word for it.",
-  lede,
-  testimonials = DEFAULT_TESTIMONIALS,
-}: TestimonialsBandProps) {
+export function TestimonialsBand() {
+  const [preview, setPreview] = useState(false);
+
+  useEffect(() => {
+    const syncPreview = () =>
+      setPreview(window.location.hash === "#preview-testimonials");
+    syncPreview();
+    window.addEventListener("hashchange", syncPreview);
+    return () => window.removeEventListener("hashchange", syncPreview);
+  }, []);
+
+  const real = TESTIMONIALS.filter((t) => !t.placeholder);
+  // Hide the whole section until at least one real testimonial exists.
+  // Preview locally with placeholders by opening the page with #preview-testimonials
+  const list = real.length ? real : preview ? TESTIMONIALS : [];
+
+  if (list.length === 0) return null;
+
   return (
-    <section className="bg-bone py-24 lg:py-32">
-      <Container>
-        <Reveal>
-          <p className="type-label">{eyebrow}</p>
-          <h2 className="type-display-m mt-4 max-w-[18ch]">{title}</h2>
-          {lede && <p className="type-lead mt-4">{lede}</p>}
-        </Reveal>
-
-        <div className="mt-12 grid gap-6 md:grid-cols-3 lg:mt-16 lg:gap-8">
-          {testimonials.map((item, index) => (
-            <Reveal key={index} delay={index * 0.08}>
-              <div className="flex h-full flex-col justify-between rounded-card border border-line bg-linen/50 p-6 sm:p-8">
-                <blockquote className="text-base leading-relaxed text-ink sm:text-[1.0625rem]">
-                  &ldquo;{item.quote}&rdquo;
-                </blockquote>
-
-                <footer className="mt-8 border-t border-line/70 pt-4">
-                  <cite className="not-italic text-sm">
-                    <span className="font-medium text-ink">— {item.name}</span>
-                    <span className="text-muted">, {item.role}</span>
-                  </cite>
-                </footer>
-              </div>
-            </Reveal>
+    <section
+      id="testimonials"
+      className="tm-section"
+      aria-labelledby="tm-title"
+    >
+      <div className="tm-wrap">
+        <p className="tm-eyebrow">Proof</p>
+        <h2 id="tm-title" className="tm-title">
+          What people say
+        </h2>
+        <p className="tm-sub">Feedback from people I&apos;ve worked with.</p>
+        <div id="tm-grid" className="tm-grid" aria-label="Client testimonials">
+          {list.map((item, index) => (
+            <figure className="tm-card" key={`${item.name}-${index}`}>
+              {item.work && <div className="tm-work">{item.work}</div>}
+              <blockquote className="tm-quote">{item.quote}</blockquote>
+              <figcaption className="tm-person">
+                {item.photo ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    className="tm-avatar"
+                    src={item.photo}
+                    alt={item.name}
+                  />
+                ) : (
+                  <span className="tm-avatar" aria-hidden="true">
+                    {getInitials(item.name)}
+                  </span>
+                )}
+                <div>
+                  <div className="tm-name">{item.name}</div>
+                  <div className="tm-role">{item.role}</div>
+                </div>
+              </figcaption>
+            </figure>
           ))}
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

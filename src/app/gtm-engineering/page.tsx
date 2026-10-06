@@ -85,7 +85,7 @@ export default function GtmEngineeringPage() {
             whether the system still books meetings when somebody else is running it.
           </p>
           <p className="border-l-2 border-garnet pl-5 text-ink">
-            I run this system today for SynaCare, an AI-first electronic health record sold
+            I run this system today, an AI-first electronic health record sold
             into clinics and hospitals across the United States. It is one of the hardest
             cold markets there is, which makes it a useful place to test whether an
             architecture actually holds.

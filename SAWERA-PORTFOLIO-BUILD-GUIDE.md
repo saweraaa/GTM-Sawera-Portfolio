@@ -80,7 +80,7 @@ She is three things at once:
 |---|---|
 | **Go-To-Market Engineer** | Senior Manager, Business Development & Growth at Techloset Solutions. Owns B2B outbound for SynaCare, an AI-first EHR sold into US clinics and hospitals. |
 | **AI / ML Engineer & Researcher** | MS Computer Science. Thesis on Healthcare RAG for clinical decision support in Urdu. Research in multimodal and agentic RAG for agriculture. Debugged a ResNet50 counterfeit-detection pipeline for a client. |
-| **Educator & Public Speaker** | NAVTTC government trainer, Virtual University of Pakistan, incoming instructor at Saylani Mass IT Training Center. Invited speaker at UCP, UAF and NIC Faisalabad, each of which awarded her a Guest Speaker Shield. |
+| **Educator & Public Speaker** | NAVTTC government trainer, Virtual University of Pakistan, instructor at Saylani Mass IT Training Center. Invited speaker at UCP, UAF and NIC Faisalabad, each of which awarded her a Guest Speaker Shield. |
 
 ## 1.2 The brand thesis
 
@@ -1239,7 +1239,7 @@ export const PILLARS = [
     title: "Teaching and speaking",
     lede: "If I cannot teach it, I do not understand it.",
     body: "I run a three-month government-funded full-stack programme, teach at Virtual University, and step onto university stages when someone needs a working developer rather than a slide deck. Three institutions have handed me a shield for it. Teaching is also the reason my documentation is good, which clients notice long before they notice anything else.",
-    proof: "NAVTTC, Virtual University of Pakistan, and incoming at Saylani Mass IT Training Center.",
+    proof: "NAVTTC, Virtual University of Pakistan, and Saylani Mass IT Training Center.",
     tags: ["Curriculum design", "Live instruction", "Mentorship", "Public speaking"],
   },
 ] as const;
@@ -1302,7 +1302,7 @@ export const TIMELINE: TimelineItem[] = [
     body: "Researching a retrieval-augmented generation pipeline that answers Urdu-language clinical questions grounded in Pakistan's national health guidelines, aimed at community health workers.",
   },
   {
-    period: "2025, incoming",
+    period: "2025",
     title: "Instructor, Web Development and Coding",
     org: "Saylani Mass IT Training Center",
     kind: "teaching",
@@ -1936,7 +1936,7 @@ export const TALKS: Talk[] = [
     title: "Web development and coding",
     venue: "Saylani Mass IT Training Center",
     kind: "Programme",
-    year: "Incoming",
+    year: "2025",
     body: "Selected to teach at one of the largest free technical training networks in Pakistan.",
   },
   {

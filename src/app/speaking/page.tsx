@@ -10,7 +10,6 @@ import { SmartImage } from "@/components/ui/SmartImage";
 import { Chip } from "@/components/ui/Chip";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { TALKS, SPEAKING_TOPICS, SPEAKING_GALLERY } from "@/content/speaking";
-import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = buildMetadata({
   title: "Speaking, Workshops and Training Programmes",
@@ -60,26 +59,36 @@ export default function SpeakingPage() {
       {/* Gallery */}
       <Container bleed className="pb-20">
         <Reveal>
-          <div className="grid gap-4 md:grid-cols-4">
-            {SPEAKING_GALLERY.map((g, i) => (
+          <div className="grid gap-4 lg:grid-cols-2">
+            {/* 1st bigger featured image */}
+            <div className="relative aspect-[4/3] overflow-hidden rounded-xl2 lg:aspect-auto">
               <SmartImage
-                key={g.src}
-                src={g.src}
-                alt={g.alt}
-                width={1400}
-                height={933}
-                sizes="(max-width: 768px) 100vw, 40vw"
-                priority={i === 0}
-                className={cn(
-                  "w-full rounded-xl2 object-cover",
-                  g.span === "lg" ? "md:col-span-2 aspect-3/2" : "aspect-square"
-                )}
-                wrapperClassName={cn(
-                  "w-full rounded-xl2",
-                  g.span === "lg" ? "md:col-span-2 aspect-3/2" : "aspect-square"
-                )}
+                src={SPEAKING_GALLERY[0].src}
+                alt={SPEAKING_GALLERY[0].alt}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+                className="size-full object-cover transition-transform duration-500 hover:scale-[1.02]"
               />
-            ))}
+            </div>
+
+            {/* 4 images: two above and two below following the 1st one */}
+            <div className="grid grid-cols-2 gap-4">
+              {SPEAKING_GALLERY.slice(1).map((g) => (
+                <div
+                  key={g.src}
+                  className="relative aspect-square overflow-hidden rounded-xl2"
+                >
+                  <SmartImage
+                    src={g.src}
+                    alt={g.alt}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                    className="size-full object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </Reveal>
       </Container>

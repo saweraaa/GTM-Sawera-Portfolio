@@ -64,7 +64,7 @@ export const TALKS: Talk[] = [
     title: "Web development and coding",
     venue: "Saylani Mass IT Training Center",
     kind: "Programme",
-    year: "Incoming",
+    year: "2025",
     body: "Selected to teach at one of the largest free technical training networks in Pakistan.",
   },
   {
@@ -100,7 +100,29 @@ export const SPEAKING_TOPICS = [
 ];
 
 export const SPEAKING_GALLERY = [
-  { src: "/images/speaking-1.jpg", alt: "Sawera Nadeem delivering a web development workshop to a university audience", span: "lg" },
-  { src: "/images/speaking-2.jpg", alt: "Hands-on coding session with students during a training programme", span: "sm" },
-  { src: "/images/speaking-3.jpg", alt: "Guest Speaker Shield awarded for an invited seminar", span: "sm" },
+  {
+    src: "/images/speaking-1.jpg",
+    alt: "Sawera Nadeem delivering a keynote address on stage at an annual conference",
+    span: "lg",
+  },
+  {
+    src: "/images/speaking-2.jpg",
+    alt: "Interactive discussion and speaking session with attendees",
+    span: "sm",
+  },
+  {
+    src: "/images/speaking-3.jpg",
+    alt: "Guest speaker lecture at University of Central Punjab",
+    span: "sm",
+  },
+  {
+    src: "/images/speaking-4.jpg",
+    alt: "Workshop mentorship session and curriculum discussion",
+    span: "sm",
+  },
+  {
+    src: "/images/speaking-5.jpg",
+    alt: "Stage presentation and address to conference audience",
+    span: "sm",
+  },
 ];

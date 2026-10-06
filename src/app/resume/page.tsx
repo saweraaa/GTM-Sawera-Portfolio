@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Download } from "lucide-react";
+import { Download, ExternalLink } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema } from "@/lib/jsonld";
 import { JsonLd } from "@/components/ui/JsonLd";
@@ -104,10 +104,21 @@ export default function ResumePage() {
                 Outbound systems, pipeline metrics, CRM architecture, growth leadership.
               </p>
             </div>
-            <Button href={SITE.cv.commercial} download className="self-start">
-              Download PDF
-              <Download className="size-4" />
-            </Button>
+            <div className="flex flex-wrap items-center gap-3">
+              <Button href={SITE.cv.commercial} external className="self-start">
+                Open PDF
+                <ExternalLink className="size-4" />
+              </Button>
+              <Button
+                href={SITE.cv.commercial}
+                download
+                variant="outline"
+                className="self-start"
+              >
+                Download
+                <Download className="size-4" />
+              </Button>
+            </div>
           </div>
 
           <div className="flex flex-col gap-4">
@@ -118,15 +129,21 @@ export default function ResumePage() {
                 Teaching record, invited talks, research projects, technical coursework.
               </p>
             </div>
-            <Button
-              href={SITE.cv.academic}
-              download
-              variant="outline"
-              className="self-start"
-            >
-              Download PDF
-              <Download className="size-4" />
-            </Button>
+            <div className="flex flex-wrap items-center gap-3">
+              <Button href={SITE.cv.academic} external className="self-start">
+                Open PDF
+                <ExternalLink className="size-4" />
+              </Button>
+              <Button
+                href={SITE.cv.academic}
+                download
+                variant="outline"
+                className="self-start"
+              >
+                Download
+                <Download className="size-4" />
+              </Button>
+            </div>
           </div>
         </Reveal>
       </Container>
