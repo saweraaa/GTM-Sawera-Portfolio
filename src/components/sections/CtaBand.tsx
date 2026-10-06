@@ -3,18 +3,21 @@ import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { AuroraMesh } from "@/components/visual/AuroraMesh";
 import { SITE } from "@/content/site";
+import { cn } from "@/lib/utils";
 
 export function CtaBand({
   title = "Pipeline should be a system, not a scramble.",
   body = "Tell me what is happening in the funnel right now. I will tell you what I would fix first, whether or not we end up working together.",
   primaryLabel = "Start a conversation",
+  className,
 }: {
   title?: string;
   body?: string;
   primaryLabel?: string;
+  className?: string;
 }) {
   return (
-    <section className="band-plum relative overflow-hidden">
+    <section className={cn("band-plum relative overflow-hidden", className)}>
     {/* <section className="band-plum relative overflow-hidden"> */}
       <AuroraMesh />
       <Container className="relative py-24 text-center lg:py-36">

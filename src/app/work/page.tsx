@@ -95,7 +95,7 @@ export default function WorkPage() {
         </ul>
       </Container>
 
-      <CtaBand />
+      <CtaBand className="mt-20 lg:mt-24" />
     </>
   );
 }
