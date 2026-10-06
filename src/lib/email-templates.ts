@@ -62,10 +62,6 @@ export function autoReplyEmail(name: string) {
     <p style="margin:0 0 16px;font-size:15px;line-height:1.7;color:#241a20;">
       If it is urgent, replying directly to this email reaches me fastest.
     </p>
-    <p style="margin:0 0 24px;font-size:15px;line-height:1.7;color:#241a20;">
-      In the meantime, the six-stage breakdown of how I build outbound systems is here:
-      <a href="${SITE.url}/gtm-engineering" style="color:#b33a63;">${SITE.url.replace(/^https?:\/\//, "")}/gtm-engineering</a>
-    </p>
     <p style="margin:0;font-size:15px;line-height:1.7;color:#241a20;">
       Sawera Nadeem<br>
       <span style="color:#6e5c63;font-size:13px;">GTM Engineer, Faisalabad, Pakistan</span>

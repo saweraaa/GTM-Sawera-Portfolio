@@ -74,10 +74,16 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-8">
-      {/* Honeypot. Hidden from humans and from assistive technology. */}
-      <div aria-hidden className="absolute left-[-9999px] size-px overflow-hidden">
+      {/* Honeypot. Hidden from humans and assistive technology without blocking focus semantics. */}
+      <div className="hidden" style={{ display: "none" }}>
         <label htmlFor="website">Do not fill this in</label>
-        <input id="website" tabIndex={-1} autoComplete="off" {...register("website")} />
+        <input
+          id="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          {...register("website")}
+        />
       </div>
 
       <div className="grid gap-8 sm:grid-cols-2">

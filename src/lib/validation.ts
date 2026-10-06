@@ -31,8 +31,8 @@ export const contactSchema = z.object({
   consent: z.literal(true, {
     message: "Please confirm you are happy to be contacted",
   }),
-  // Anti-spam. Must stay empty. Hidden from humans and from screen readers.
-  website: z.string().max(0).optional().or(z.literal("")),
+  // Anti-spam honeypot field. Validated server-side to prevent client validation/focus traps.
+  website: z.string().optional(),
   // Anti-spam. Client stamps mount time; a sub-3-second submit is a bot.
   startedAt: z.number().optional(),
 });

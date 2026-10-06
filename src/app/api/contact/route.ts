@@ -40,12 +40,16 @@ export async function POST(req: Request) {
     const data = parsed.data;
 
     // Spam layer 1: honeypot must be empty.
-    if (data.website) {
+    if (data.website && data.website.trim().length > 0) {
       return NextResponse.json({ ok: true }, { status: 200 });
     }
 
-    // Spam layer 2: humans take longer than three seconds to fill this in.
-    if (data.startedAt && Date.now() - data.startedAt < 3000) {
+    // Spam layer 2: automated bots submit almost instantly (<1 second).
+    if (
+      process.env.NODE_ENV !== "development" &&
+      data.startedAt &&
+      Date.now() - data.startedAt < 1000
+    ) {
       return NextResponse.json({ ok: true }, { status: 200 });
     }
 
@@ -58,10 +62,22 @@ export async function POST(req: Request) {
       );
     }
 
+    const apiKey = process.env.BREVO_API_KEY?.trim();
+    if (!apiKey) {
+      console.error("[contact] BREVO_API_KEY is missing or unconfigured in environment");
+      return NextResponse.json(
+        {
+          error:
+            "Email service is not configured yet (missing BREVO_API_KEY). Please set BREVO_API_KEY in .env.local or Vercel, or email saweranadeem8063@gmail.com directly.",
+        },
+        { status: 503 }
+      );
+    }
+
     const to = [
       {
-        email: process.env.CONTACT_TO_EMAIL!,
-        name: process.env.CONTACT_TO_NAME ?? "Sawera Nadeem",
+        email: process.env.CONTACT_TO_EMAIL?.trim() || "saweranadeem8063@gmail.com",
+        name: process.env.CONTACT_TO_NAME?.trim() || "Sawera Nadeem",
       },
     ];
 
@@ -90,8 +106,9 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true }, { status: 200 });
   } catch (err) {
     console.error("[contact] send failed:", err);
+    const message = err instanceof Error ? err.message : "Unknown error";
     return NextResponse.json(
-      { error: "Could not send right now. Please email saweranadeem8063@gmail.com directly." },
+      { error: `Could not send right now (${message}). Please email saweranadeem8063@gmail.com directly.` },
       { status: 500 }
     );
   }
