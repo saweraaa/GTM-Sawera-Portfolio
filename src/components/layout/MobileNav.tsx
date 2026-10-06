@@ -99,7 +99,10 @@ export function MobileNav({
             </button>
           </div>
 
-          <nav aria-label="Mobile" className="mt-14 flex flex-1 flex-col gap-1">
+          <nav
+            aria-label="Mobile"
+            className="mt-14 flex min-h-0 flex-1 flex-col gap-1 overflow-y-auto overscroll-contain"
+          >
             {LINKS.map((link, i) => (
               <motion.div
                 key={link.href}
