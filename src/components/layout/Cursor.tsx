@@ -69,7 +69,7 @@ export function Cursor() {
           height: ringSize,
           opacity: visible ? 1 : 0,
           backgroundColor:
-            mode === "default" ? "rgba(179,58,99,0)" : "rgba(179,58,99,1)",
+            mode === "view" ? "rgba(179,58,99,1)" : "rgba(179,58,99,0)",
         }}
         transition={{ type: "spring", stiffness: 280, damping: 26 }}
       >
