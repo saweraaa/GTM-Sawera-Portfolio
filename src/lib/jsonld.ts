@@ -31,6 +31,8 @@ export const personSchema = {
   },
   knowsAbout: [
     "Go-to-market engineering",
+    "LinkedIn profile positioning",
+    "B2B outreach",
     "B2B outbound systems",
     "Lead generation",
     "CRM architecture",

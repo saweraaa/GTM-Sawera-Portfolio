@@ -432,7 +432,7 @@ Never commit this file. `.env.example` is committed, `.env.local` is not.
 
 ```
 # Public
-NEXT_PUBLIC_SITE_URL=https://saweranadeem.com
+NEXT_PUBLIC_SITE_URL=https://saweranadeem.vercel.app
 
 # Brevo transactional email
 BREVO_API_KEY=xkeysib-replace-me
@@ -753,7 +753,7 @@ export default nextConfig;
 ### `.env.example`
 
 ```
-NEXT_PUBLIC_SITE_URL=https://saweranadeem.com
+NEXT_PUBLIC_SITE_URL=https://saweranadeem.vercel.app
 BREVO_API_KEY=
 BREVO_SENDER_EMAIL=
 BREVO_SENDER_NAME=Sawera Nadeem Website
@@ -773,14 +773,14 @@ NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=
 > across Pakistan through NAVTTC, Virtual University and Saylani.
 
 ## Pages
-- [Home](https://saweranadeem.com/): Positioning, proof metrics, featured work.
-- [GTM Engineering](https://saweranadeem.com/gtm-engineering): The full six-stage outbound system, tool by tool.
-- [Services](https://saweranadeem.com/services): Four engagement types, deliverables and process.
-- [Work](https://saweranadeem.com/work): Case studies across GTM, applied AI and curriculum design.
-- [Speaking](https://saweranadeem.com/speaking): Talks, workshops and training programmes.
-- [About](https://saweranadeem.com/about): Background, timeline and credentials.
-- [Resume](https://saweranadeem.com/resume): Downloadable CVs, commercial and academic.
-- [Contact](https://saweranadeem.com/contact): Enquiry form and direct channels.
+- [Home](https://saweranadeem.vercel.app/): Positioning, proof metrics, featured work.
+- [GTM Engineering](https://saweranadeem.vercel.app/gtm-engineering): The full six-stage outbound system, tool by tool.
+- [Services](https://saweranadeem.vercel.app/services): Four engagement types, deliverables and process.
+- [Work](https://saweranadeem.vercel.app/work): Case studies across GTM, applied AI and curriculum design.
+- [Speaking](https://saweranadeem.vercel.app/speaking): Talks, workshops and training programmes.
+- [About](https://saweranadeem.vercel.app/about): Background, timeline and credentials.
+- [Resume](https://saweranadeem.vercel.app/resume): Downloadable CVs, commercial and academic.
+- [Contact](https://saweranadeem.vercel.app/contact): Enquiry form and direct channels.
 
 ## Facts
 - Location: Faisalabad, Pakistan. Works remotely with US and EU teams.
@@ -1123,7 +1123,7 @@ export const SITE = {
   name: "Sawera Nadeem",
   shortName: "Sawera",
   role: "GTM Engineer",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://saweranadeem.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://saweranadeem.vercel.app",
   locale: "en_US",
   email: "saweranadeem8063@gmail.com",
   phone: "+92 303 7707026",

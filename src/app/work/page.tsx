@@ -10,12 +10,13 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SmartImage } from "@/components/ui/SmartImage";
 import { Chip } from "@/components/ui/Chip";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { LinkedInCaseStudy } from "@/components/sections/LinkedInCaseStudy";
 import { CASE_STUDIES } from "@/content/work";
 
 export const metadata: Metadata = buildMetadata({
   title: "Case Studies, GTM Systems, Applied AI and Curriculum Design",
   description:
-    "Five engagements in detail: an outbound engine for healthcare AI, an Urdu clinical retrieval pipeline, a national full-stack curriculum, a marketplace build and a counterfeit-detection model fix.",
+    "Five engagements in detail, plus how I repositioned my own LinkedIn profile for software, AI and agency founders.",
   path: "/work",
   keywords: [
     "GTM case study",
@@ -95,6 +96,7 @@ export default function WorkPage() {
         </ul>
       </Container>
 
+      <LinkedInCaseStudy />
       <CtaBand className="mt-20 lg:mt-24" />
     </>
   );

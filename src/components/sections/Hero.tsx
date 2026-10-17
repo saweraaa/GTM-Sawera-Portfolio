@@ -29,14 +29,19 @@ export function Hero() {
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-8">
           {/* Left: the pitch */}
           <div className="lg:col-span-7">
-            <motion.p
-              className="type-label"
+            <motion.div
+              className="flex flex-wrap items-center gap-x-4 gap-y-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.1 }}
             >
-              Faisalabad, Pakistan · Working with US teams
-            </motion.p>
+              <span className="type-label">
+                LinkedIn positioning · B2B outreach · GTM engineering
+              </span>
+              <span className="type-label text-muted">
+                Faisalabad, Pakistan · Working with US teams
+              </span>
+            </motion.div>
 
             <TextReveal
               as="h1"
@@ -61,9 +66,11 @@ export function Hero() {
                 delay: noMotion ? 0 : 0.75,
               }}
             >
-              And I teach the people who run them. GTM Engineer, MS Computer
-              Science researcher, and the person a founder calls when outbound
-              needs to become a system instead of a habit.
+              I help software, AI and agency founders turn LinkedIn into a
+              clearer path to business conversations. I position the profile,
+              connect it to B2B outreach, and build the GTM systems—outbound,
+              enrichment and CRM—that support it. I also teach the people who
+              run these systems and am an MS Computer Science researcher.
             </motion.p>
 
             <motion.div
@@ -114,7 +121,7 @@ export function Hero() {
             }}
           >
             <VerticalLabel className="absolute -left-2 top-8 hidden lg:block">
-              Sawera Nadeem · GTM Engineer
+              Sawera Nadeem · GTM Engineer · LinkedIn positioning
             </VerticalLabel>
 
             <div className="relative ml-auto w-full max-w-[420px]">
@@ -125,7 +132,7 @@ export function Hero() {
               />
               <SmartImage
                 src="/images/sawera-hero.jpg"
-                alt="Sawera Nadeem, GTM Engineer and web development trainer, Faisalabad"
+                alt="Sawera Nadeem, GTM Engineer specializing in LinkedIn positioning and B2B outreach, Faisalabad"
                 width={840}
                 height={1120}
                 priority
@@ -136,7 +143,7 @@ export function Hero() {
             </div>
 
             <p className="mt-5 text-right font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-muted">
-              Sawera Nadeem · GTM Engineer
+              Sawera Nadeem · GTM Engineer · LinkedIn positioning
             </p>
           </motion.div>
         </div>

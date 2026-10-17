@@ -10,9 +10,9 @@ import { TestimonialsBand } from "@/components/sections/TestimonialsBand";
 import { CtaBand } from "@/components/sections/CtaBand";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Sawera Nadeem, GTM Engineer and AI Systems Builder",
+  title: "GTM Engineer and LinkedIn Positioning for Founders | Sawera Nadeem",
   description:
-    "GTM Engineer building B2B outbound systems, enrichment pipelines and CRM architecture for healthcare AI. MS Computer Science researcher and web development trainer in Faisalabad, Pakistan.",
+    "LinkedIn positioning and B2B outreach for software, AI and agency founders, backed by GTM engineering: outbound systems, enrichment and CRM architecture. Sawera Nadeem, Faisalabad, Pakistan.",
   path: "/",
   keywords: [
     "Sawera Nadeem",

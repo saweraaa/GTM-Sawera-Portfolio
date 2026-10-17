@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "node init && next dev",
+    "build": "node init && next build",
     "assets:icons": "node scripts/generate-icons.mjs",
-    "start": "next start",
+    "start": "node init && next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },

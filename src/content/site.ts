@@ -2,7 +2,7 @@ export const SITE = {
   name: "Sawera Nadeem",
   shortName: "Sawera",
   role: "GTM Engineer",
-  url: process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://saweranadeem.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://saweranadeem.vercel.app",
   locale: "en_US",
   email: "saweranadeem8063@gmail.com",
   phone: "+92 303 7707026",
@@ -14,13 +14,13 @@ export const SITE = {
   taglineSecondary: "And I teach the people who run them.",
 
   description:
-    "GTM Engineer and AI systems builder. I design outbound engines, enrichment pipelines and CRM architecture for B2B teams selling into healthcare, then hand over the playbook so the team can run it without me.",
+    "I help software, AI and agency founders with LinkedIn positioning and B2B outreach, supported by GTM engineering across outbound systems, enrichment and CRM architecture.",
 
   shortBio:
-    "Sawera Nadeem is a GTM Engineer and MS Computer Science researcher who builds B2B outbound systems for healthcare AI and trains developers across Pakistan.",
+    "Sawera Nadeem is a GTM Engineer specializing in LinkedIn positioning, B2B outreach and the outbound systems, enrichment and CRM architecture that support founder-led growth.",
 
   socials: {
-    linkedin: "https://www.linkedin.com/in/sawera-nadeem-2a6468315",
+    linkedin: "https://www.linkedin.com/in/sawera-nadeem/",
     github: "https://github.com/",
     x: "",
   },
@@ -29,7 +29,7 @@ export const SITE = {
   // This array feeds schema.org "sameAs" and is the highest-leverage
   // structured-data field for entity recognition.
   sameAs: [
-    "https://www.linkedin.com/in/sawera-nadeem-2a6468315",
+    "https://www.linkedin.com/in/sawera-nadeem/",
   ],
 
   nav: [
